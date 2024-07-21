@@ -1,0 +1,86 @@
+"use strict";
+
+{
+  function render(quiz) {
+    const main = document.querySelector('main');
+
+    const section = document.createElement('section');
+    const h2 = document.createElement('h2');
+    h2.textContent = quiz[0];
+
+    const ul = document.createElement('ul');
+
+    // const li0 = document.createElement('li');
+    // li0.textContent = quiz[1];
+    // li0.addEventListener('click', () => {
+    //   if (quiz[4] === 0) {
+    //     li0.classList.add('correct');
+    //   } else {
+    //     li0.classList.add('wrong');
+    //   }
+    // })
+    // const li1 = document.createElement('li');
+    // li1.textContent = quiz[2];
+    // li1.addEventListener('click', () => {
+    //   if (quiz[4] === 1) {
+    //     li1.classList.add('correct');
+    //   } else {
+    //     li1.classList.add('wrong');
+    //   }
+    // })
+    // const li2 = document.createElement('li');
+    // li2.textContent = quiz[3];
+    // li2.addEventListener('click', () => {
+    //   if (quiz[4] === 2) {
+    //     li2.classList.add('correct');
+    //   } else {
+    //     li2.classList.add('wrong');
+    //   }
+    // })
+
+
+    const choices = [quiz[1], quiz[2], quiz[3]];
+// 各選択肢の作成
+    for (let i = 0; i < choices.length; i++) {
+      // console.log(`li${i}`);
+      const li = document.createElement('li');
+      li.textContent = choices[i];
+      li.addEventListener('click', () => {
+        // クリックした選択肢が正解の場合、true
+        if (quiz[4] === i) {
+          li.classList.add('correct');
+        } else {
+          li.classList.add('wrong');
+        }
+      });
+      // ここで作成したli要素を適切な親要素に追加する必要があります
+      // 例: parentElement.appendChild(li);
+
+      ul.appendChild(li);
+    }
+
+
+    section.appendChild(h2);
+    section.appendChild(ul);
+    main.appendChild(section);
+
+  }
+
+
+  // 問題文, 選択肢, 選択肢, 選択肢, 正解(0, 1, 2)
+  // const quiz = ["1の正解は？", "選択肢 A", "選択肢 B", "選択肢 C", 0];
+  const quizzes = [
+    ["1の正解は？", "選択肢 A", "選択肢 B", "選択肢 C", 0],
+    ["2の正解は？", "選択肢 A", "選択肢 B", "選択肢 C", 1],
+    ["3の正解は？", "選択肢 A", "選択肢 B", "選択肢 C", 2],
+  ];
+
+quizzes.forEach((quiz) => {
+  render(quiz);
+});
+
+
+  // render(quizzes[0]);
+  // render(quizzes[1]);
+  // render(quizzes[2]);
+}
