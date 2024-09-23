@@ -5,6 +5,12 @@
   const save = document.getElementById("save");
   const msg = document.getElementById("msg");
 
+  if (localStorage.getItem('memo') === null) {
+    text.value = '';
+  } else {
+    text.value = localStorage.getItem('memo');
+  }
+
   save.addEventListener("click", () => {
     msg.classList.add("appear");
     setTimeout(() => {
