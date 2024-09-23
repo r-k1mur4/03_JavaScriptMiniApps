@@ -1,9 +1,14 @@
 @charset "utf-8";
 
+.title {
+  margin: 20px auto 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
 main {
   width: 256px;
   margin: 0  auto;
-  background: pink;
 }
 
 img {
