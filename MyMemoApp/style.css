@@ -24,6 +24,11 @@ button {
   padding: 4px 16px;
   cursor: pointer;
 }
+button.unclickable {
+  pointer-events: none;
+  background-color: #6b6b6b;
+  opacity: .5;
+}
 
 span {
   font-size: 14px;
