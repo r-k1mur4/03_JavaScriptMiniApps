@@ -7,7 +7,7 @@
 }
 
 main {
-  width: 256px;
+  max-width: 320px;
   margin: 0  auto;
 }
 
@@ -21,6 +21,10 @@ img {
   margin-top: 8px;
 
 }
+.container > img {
+  width: 20%;
+}
+
 
 button {
   all: unset;

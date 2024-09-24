@@ -17,7 +17,9 @@
     thumbnails[0].classList.add("active");
     thumbnails[1].classList.remove("active");
     thumbnails[2].classList.remove("active");
+    thumbnails[3].classList.remove("active");
   });
+
   // 1番めのサムネイルをクリックしたときのイベントリスナー
   thumbnails[1].addEventListener("click", () => {
     // クリックしたサムネイルの番号でactiveIndexを更新する
@@ -27,7 +29,9 @@
     thumbnails[0].classList.remove("active");
     thumbnails[1].classList.add("active");
     thumbnails[2].classList.remove("active");
+    thumbnails[3].classList.remove("active");
   });
+
   // 2番めのサムネイルをクリックしたときのイベントリスナー
   thumbnails[2].addEventListener("click", () => {
     // クリックしたサムネイルの番号でactiveIndexを更新する
@@ -37,12 +41,29 @@
     thumbnails[0].classList.remove("active");
     thumbnails[1].classList.remove("active");
     thumbnails[2].classList.add("active");
+    thumbnails[3].classList.remove("active");
   });
+
+  // 3番めのサムネイルをクリックしたときのイベントリスナー
+  thumbnails[3].addEventListener("click", () => {
+    // クリックしたサムネイルの番号でactiveIndexを更新する
+    activeIndex = 3;
+
+    mainImage.src = thumbnails[3].src;
+    thumbnails[0].classList.remove("active");
+    thumbnails[1].classList.remove("active");
+    thumbnails[2].classList.remove("active");
+    thumbnails[3].classList.add("active");
+  });
+
+/*   */
+/* 矢印ボタン押下 */
+/*   */
 
   next.addEventListener("click", () => {
     activeIndex++;
-    // 番号が３以上になったら０に戻す
-    if (activeIndex > 2) {
+    // 番号が4以上になったら０に戻す
+    if (activeIndex > 3) {
       activeIndex = 0;
     }
     mainImage.src = thumbnails[activeIndex].src;
@@ -50,6 +71,7 @@
     thumbnails[0].classList.remove("active");
     thumbnails[1].classList.remove("active");
     thumbnails[2].classList.remove("active");
+    thumbnails[3].classList.remove("active");
     thumbnails[activeIndex].classList.add("active");
   });
 
@@ -64,6 +86,7 @@
     thumbnails[0].classList.remove("active");
     thumbnails[1].classList.remove("active");
     thumbnails[2].classList.remove("active");
+    thumbnails[3].classList.remove("active");
     thumbnails[activeIndex].classList.add("active");
   });
 }
