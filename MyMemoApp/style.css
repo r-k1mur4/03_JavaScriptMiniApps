@@ -30,11 +30,14 @@ button.unclickable {
   opacity: .5;
 }
 
-span {
+.container > span {
   font-size: 14px;
   margin-right: auto;
   opacity: 0;
   transition: opacity 300ms;
+}
+.container > span.appear {
+  opacity: 1;
 }
 
 .container {
@@ -42,8 +45,4 @@ span {
   align-items: center;
   gap: 4px;
   margin-top: 8px;
-}
-
-.appear {
-  opacity: 1;
 }

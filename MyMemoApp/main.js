@@ -6,6 +6,11 @@
   const save = document.getElementById("save");
   const clear = document.getElementById("clear");
   const msg = document.getElementById("msg");
+  const dateUpdated = document.getElementById("date-updated");
+
+  //
+
+
 
 
   // 初期状態をチェック
@@ -39,6 +44,9 @@
       msg.classList.remove("appear");
     }, 1000);
     localStorage.setItem("memo", text.value);
+
+    // 最終保存日時の更新
+    dateUpdated.textContent = getFormattedDateTime();
   });
 
   // 削除機能
@@ -50,4 +58,18 @@
       localStorage.removeItem("memo");
     }
   });
+
+  // フォーマットされた日時を返す関数
+  function getFormattedDateTime() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = ('0' + (now.getMonth() + 1)).slice(-2);
+    const day = ('0' + now.getDate()).slice(-2);
+    const hours = ('0' + now.getHours()).slice(-2);
+    const minutes = ('0' + now.getMinutes()).slice(-2);
+    const seconds = ('0' + now.getSeconds()).slice(-2);
+
+    return `${year}年${month}月${day}日 ${hours}:${minutes}:${seconds}`;
+  }
+
 }
