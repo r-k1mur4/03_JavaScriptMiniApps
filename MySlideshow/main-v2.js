@@ -61,18 +61,7 @@
 /*   */
 
   next.addEventListener("click", () => {
-    activeIndex++;
-    // 番号が4以上になったら０に戻す
-    if (activeIndex > 3) {
-      activeIndex = 0;
-    }
-    mainImage.src = thumbnails[activeIndex].src;
-    // 該当のサムネイル画像を明るくする
-    thumbnails[0].classList.remove("active");
-    thumbnails[1].classList.remove("active");
-    thumbnails[2].classList.remove("active");
-    thumbnails[3].classList.remove("active");
-    thumbnails[activeIndex].classList.add("active");
+    activeIndexChange();
   });
 
   prev.addEventListener("click", () => {
@@ -89,4 +78,33 @@
     thumbnails[3].classList.remove("active");
     thumbnails[activeIndex].classList.add("active");
   });
+
+
+  // 一定時間ごとに画像表示を変える
+
+  let switchImg1 = setInterval(() => {
+   activeIndexChange();
+  }, 2000);
+
+  switchImg1;
+
+  function activeIndexChange() {
+    activeIndex++;
+    // 番号が4以上になったら０に戻す
+    if (activeIndex > 3) {
+      activeIndex = 0;
+    }
+    mainImage.src = thumbnails[activeIndex].src;
+    // 該当のサムネイル画像を明るくする
+    thumbnails[0].classList.remove("active");
+    thumbnails[1].classList.remove("active");
+    thumbnails[2].classList.remove("active");
+    thumbnails[3].classList.remove("active");
+    thumbnails[activeIndex].classList.add("active");
+  };
+
+
+
+  // clearInterval(switchImg1);
+
 }
